@@ -8,6 +8,8 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -29,24 +31,19 @@ public class DisplayOut {
     private static GridPane gridPane;
     // TODO: observer class. if calculator object 'prices' changes, make change to output display
 
-    private DisplayOut() {}
+    private DisplayOut() {
+    }
 
     private static void miniBuilder(Item.Category category) {
-        ArrayList list = ItemMap.getCategory(category);
-        while (!list.isEmpty()) {
-            Item item = (Item) list.get(list.size() - 1);
-            int rowSize = gridPane.getRowCount();
 
-            Image imageAddress = new Image("File:images/" + item.getImage(), 20, 20, false, true);
-            ImageView imageView = new ImageView(imageAddress);
+        for (Item item : ItemMap.getCategory(category)) {
+
             BigInteger cost = new BigInteger("0");
             TextFlow materialsFlow = new TextFlow();
 
-            for (int i = 0; i < item.getMaterials().size(); i++) {
-                String material = item.getMaterials().get(i);
-                String amount;
+            for (String material : item.getMaterials()) {
                 int x = material.indexOf('x');
-                amount = material.substring(x + 1);
+                String amount = material.substring(x + 1);
                 material = material.substring(0, x);
 
                 try {
@@ -62,55 +59,38 @@ public class DisplayOut {
                     System.out.println("Exception: Item not found in map of herbs | " + e.getMessage());
                 }
 
-                Image materialAddress = new Image("File:images/" + material + ".jpg", 20, 20, false, true);
-                ImageView matView = new ImageView(materialAddress);
+                ImageView matView = new ImageView(new Image("File:images/" + material + ".jpg", 20, 20, false, true));
 
                 materialsFlow.getChildren().addAll(matView);
             }
 
+            Image imageAddress = new Image("File:images/" + item.getImage(), 20, 20, false, true);
 
-            Text name = new Text(item.getName());
-            Text price = new Text(buildPrice(String.valueOf(item.getPrice())));
-            Text costToMake = new Text(buildPrice(String.valueOf(cost)));
+            gridPane.addRow(gridPane.getRowCount(),
+                    new ImageView(imageAddress),
+                    new Text(" "),
+                    new Label(item.getName()),
+                    new Text(" "),
+                    new Label(buildIntPrice(String.valueOf(item.getPrice()))),
+                    new Text(" "),
+                    new Label(String.valueOf(item.getMyListedCount())),
+                    new Text(" "),
+                    new Label(buildIntPrice(String.valueOf(cost))),
+                    new Text(" "),
+                    materialsFlow
+            );
 
-            Text listedCount = new Text(String.valueOf(item.getMyListedCount()));
-
-            name.setFill(Color.web("A9B7C6"));
-            price.setFill(Color.web("A9B7C6"));
-
-            listedCount.setFill(Color.web("A9B7C6"));
-            costToMake.setFill(Color.web("A9B7C6"));
-
-            GridPane.setConstraints(imageView, 0, rowSize);
-            GridPane.setConstraints(name, 2, rowSize);
-            GridPane.setConstraints(price, 4, rowSize);
-            GridPane.setConstraints(listedCount, 6, rowSize);
-            GridPane.setConstraints(costToMake, 8, rowSize);
-            GridPane.setConstraints(materialsFlow, 10, rowSize);
-
-            gridPane.getChildren().addAll(imageView, name, price, listedCount, costToMake, materialsFlow);
-
-            list.remove(item);
         }
-        Text lineBreak = new Text();
-        GridPane.setConstraints(lineBreak, 0, gridPane.getRowCount());
-        gridPane.getChildren().add(lineBreak);
+        gridPane.addRow(gridPane.getRowCount(), new Text());
     }
 
     // TODO: this should update the display when a Observer object notices a change in the mapOfItems Map object
     private static void buildGridPane() {
         gridPane.setPadding(new Insets(20, 0, 20, 20));
 
-        Text mineListedTitle = new Text("listed");
-        mineListedTitle.setFill(Color.web("A9B7C6"));
+        Label mineListedTitle = new Label("listed");
         GridPane.setConstraints(mineListedTitle, 6, 0);
         gridPane.getChildren().add(mineListedTitle);
-
-        gridPane.addColumn(1, new Text(" "));
-        gridPane.addColumn(3, new Text("  "));
-        gridPane.addColumn(5, new Text("  "));
-        gridPane.addColumn(7, new Text("  "));
-        gridPane.addColumn(9, new Text("  "));
 
         // TODO builder pattern?
         miniBuilder(Item.Category.HERB);
@@ -122,11 +102,22 @@ public class DisplayOut {
         miniBuilder(Item.Category.MEAT);
     }
 
-    private static String buildPrice(String rawPrice) {
-        int length;
+    private static String buildIntPrice(String rawPrice) {
+        int length = rawPrice.length();
         String gold = "0";
-        String silver = "0";
-        length = rawPrice.length();
+
+        if (length > 4) {
+            gold = rawPrice.substring(0, length - 4);
+        } else if (length > 2) {
+            gold = "0." + rawPrice.substring(0, length - 2);
+        }
+        return gold;
+    }
+
+    private static String buildDecimalPrice(String rawPrice) {
+        String gold = "$0";
+        String silver = "$0";
+        int length = rawPrice.length();
 
         if (length > 4) {
             gold = rawPrice.substring(0, length - 4);
@@ -142,9 +133,8 @@ public class DisplayOut {
         buildGridPane();
         GridPane.setConstraints(button, 2, gridPane.getRowCount());
         gridPane.getChildren().add(button);
-        gridPane.setStyle("-fx-background-color: transparent;");
         Scene scene = new Scene(gridPane, 400, 1010);
-        scene.setFill(Color.web("2B2B2B"));
+        scene.getStylesheets().add("style.css");
         window.setScene(scene);
         window.show();
     }

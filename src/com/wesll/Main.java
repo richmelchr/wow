@@ -27,16 +27,14 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 
     @Override
     public void start(Stage primaryStage) {
-        DisplayOut displayOut = DisplayOut.getInstance();
         window = primaryStage;
         window.setTitle("AH Tracker");
         window.setOnCloseRequest(e -> closeProgram());
-        displayOut.begin(window);
+        DisplayOut.begin(window);
     }
 
     private void closeProgram() {
-        ItemMap itemMap = ItemMap.getInstance();
-        boolean saved = itemMap.saveItemMap();
+        boolean saved = ItemMap.saveItemMap();
 
         if (saved) {
             System.out.println("File is saved");

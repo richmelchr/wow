@@ -22,27 +22,17 @@ import java.util.ArrayList;
 
 public class DisplayOut {
 
-    private static DisplayOut instance;
-    private ItemMap itemMap = ItemMap.getInstance();
-    private final BigDecimal PROC_RATE = new BigDecimal("1.5");
-    private Button button;
-    private Stage window;
+    private final BigDecimal POTS_PROC_RATE = new BigDecimal("1.5");
+    private final BigDecimal FOOD_PROC_RATE = new BigDecimal("1.5");
+    private static Button button;
+    private static Stage window;
+    private static GridPane gridPane;
     // TODO: observer class. if calculator object 'prices' changes, make change to output display
 
-    private DisplayOut() { }
+    private DisplayOut() {}
 
-    //singleton
-    public static DisplayOut getInstance() {
-        synchronized (DisplayOut.class) {
-            if (instance == null) {
-                instance = new DisplayOut();
-            }
-        }
-        return instance;
-    }
-
-    private GridPane miniBuilder(Item.Category category, GridPane gridPane) {
-        ArrayList list = itemMap.getCategory(category);
+    private static void miniBuilder(Item.Category category) {
+        ArrayList list = ItemMap.getCategory(category);
         while (!list.isEmpty()) {
             Item item = (Item) list.get(list.size() - 1);
             int rowSize = gridPane.getRowCount();
@@ -60,8 +50,14 @@ public class DisplayOut {
                 material = material.substring(0, x);
 
                 try {
-                    BigInteger calcCost = itemMap.getItem(Integer.valueOf(material)).getPrice().multiply(new BigInteger(amount));
+                    BigInteger calcCost = ItemMap.getItem(Integer.valueOf(material)).getPrice().multiply(new BigInteger(amount));
                     cost = cost.add(calcCost);
+
+                    if (item.getCategory().equals(Item.Category.FOOD)) {
+                        // amount of item I get from making a batch
+                        cost = cost.divide(new BigInteger("10"));
+                    }
+
                 } catch (Exception e) {
                     System.out.println("Exception: Item not found in map of herbs | " + e.getMessage());
                 }
@@ -99,13 +95,10 @@ public class DisplayOut {
         Text lineBreak = new Text();
         GridPane.setConstraints(lineBreak, 0, gridPane.getRowCount());
         gridPane.getChildren().add(lineBreak);
-
-        return gridPane;
     }
 
     // TODO: this should update the display when a Observer object notices a change in the mapOfItems Map object
-    private GridPane buildGridPane() {
-        GridPane gridPane = new GridPane();
+    private static void buildGridPane() {
         gridPane.setPadding(new Insets(20, 0, 20, 20));
 
         Text mineListedTitle = new Text("listed");
@@ -120,16 +113,16 @@ public class DisplayOut {
         gridPane.addColumn(9, new Text("  "));
 
         // TODO builder pattern?
-        gridPane = miniBuilder(Item.Category.HERB, gridPane);
-        gridPane = miniBuilder(Item.Category.FLASK, gridPane);
-        gridPane = miniBuilder(Item.Category.BP, gridPane);
-        gridPane = miniBuilder(Item.Category.COMBAT, gridPane);
-        gridPane = miniBuilder(Item.Category.FOLLOWER, gridPane);
-
-        return gridPane;
+        miniBuilder(Item.Category.HERB);
+        miniBuilder(Item.Category.FLASK);
+        miniBuilder(Item.Category.BP);
+        miniBuilder(Item.Category.COMBAT);
+        miniBuilder(Item.Category.FOLLOWER);
+        miniBuilder(Item.Category.FOOD);
+        miniBuilder(Item.Category.MEAT);
     }
 
-    private String buildPrice(String rawPrice) {
+    private static String buildPrice(String rawPrice) {
         int length;
         String gold = "0";
         String silver = "0";
@@ -144,24 +137,26 @@ public class DisplayOut {
         return gold + "." + silver;
     }
 
-    private void buildDisplay() {
-        GridPane gridPane = buildGridPane();
+    private static void buildDisplay() {
+        gridPane = new GridPane();
+        buildGridPane();
         GridPane.setConstraints(button, 2, gridPane.getRowCount());
         gridPane.getChildren().add(button);
         gridPane.setStyle("-fx-background-color: transparent;");
-        Scene scene = new Scene(gridPane, 400, 660);
+        Scene scene = new Scene(gridPane, 400, 1010);
         scene.setFill(Color.web("2B2B2B"));
         window.setScene(scene);
         window.show();
     }
 
-    public void begin(Stage window) {
-        this.window = window;
+    public static void begin(Stage win) {
+        window = win;
+        ItemMap.buildItemMap();
         newButton();
         buildDisplay();
     }
 
-    private void newButton() {
+    private static void newButton() {
         button = new Button();
         button.setText("update");
         button.setOnAction(new EventHandler<ActionEvent>() {
@@ -169,8 +164,8 @@ public class DisplayOut {
             public void handle(ActionEvent event) {
                 try {
                     System.out.println("clicked");
-                    Connector connector = new Connector();
-                    connector.running();
+                    Connector.running();
+
                     buildDisplay();
                 } catch (Exception e) {
                     e.printStackTrace();

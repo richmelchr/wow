@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Item {
 
     public enum Category {
-        FLASK, COMBAT, HERB, FOLLOWER, UTILITY, BP
+        FLASK, COMBAT, HERB, FOLLOWER, UTILITY, BP, FOOD, MEAT
     }
 
     private int item;

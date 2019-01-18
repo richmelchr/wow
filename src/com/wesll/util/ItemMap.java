@@ -12,60 +12,53 @@ import java.util.*;
 
 public class ItemMap {
 
-    private static ItemMap instance;
-    private Map<Integer, Item> itemMap = new HashMap<>();
-    private String FILE_NAME = "D:\\Code\\wow\\items.json";
+    private static Map<Integer, Item> itemMap = new HashMap<>();
+    private static String FILE_NAME = "D:\\Code\\wow\\items.json";
 
     private ItemMap() {
-        JSONParser parser = new JSONParser();
+    }
 
-        try {
-            JSONArray itemArray = (JSONArray) parser.parse(new FileReader(FILE_NAME));
+    public static void buildItemMap() {
+        if (itemMap.isEmpty()) {
+            JSONParser parser = new JSONParser();
 
-            for (Object obj : itemArray) {
-                JSONObject jo = (JSONObject) obj;
+            try {
+                JSONArray itemArray = (JSONArray) parser.parse(new FileReader(FILE_NAME));
 
-                int itemNumber = Integer.valueOf(String.valueOf(jo.get("item")));
-                String name = String.valueOf(jo.get("name"));
-                Item.Category category = Item.Category.valueOf(String.valueOf(jo.get("category")));
-                String image = String.valueOf(jo.get("image"));
-                JSONArray jsonArray = (JSONArray) jo.get("materials");
-                ArrayList<String> meh = new ArrayList<>();
+                for (Object obj : itemArray) {
+                    JSONObject jo = (JSONObject) obj;
 
-                for (Object o : jsonArray) {
-                    meh.add(String.valueOf(o));
+                    int itemNumber = Integer.valueOf(String.valueOf(jo.get("item")));
+                    String name = String.valueOf(jo.get("name"));
+                    Item.Category category = Item.Category.valueOf(String.valueOf(jo.get("category")));
+                    String image = String.valueOf(jo.get("image"));
+                    JSONArray jsonArray = (JSONArray) jo.get("materials");
+                    ArrayList<String> meh = new ArrayList<>();
+
+                    for (Object o : jsonArray) {
+                        meh.add(String.valueOf(o));
+                    }
+                    itemMap.put(itemNumber, new Item(itemNumber, name, new BigInteger("0"), category, image, 0, meh));
                 }
-                itemMap.put(itemNumber, new Item(itemNumber, name, new BigInteger("0"), category, image, 0, meh));
-            }
 
-        } catch (IOException | ParseException e) {
-            e.printStackTrace();
+            } catch (IOException | ParseException e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    //singleton
-    public static ItemMap getInstance() {
-        synchronized (ItemMap.class) {
-            if (instance == null) {
-                instance = new ItemMap();
-            }
-        }
-        return instance;
-    }
-
-    public Item getItem(int item) {
+    public static Item getItem(int item) {
+        buildItemMap();
         return itemMap.get(item);
     }
 
-    public Map<Integer, Item> getItemMap() {
+    public static Map<Integer, Item> getItemMap() {
+        buildItemMap();
         return itemMap;
     }
 
-    public void setItemMap(Map<Integer, Item> itemMap) {
-        this.itemMap = itemMap;
-    }
-
-    public boolean saveItemMap() {
+    public static boolean saveItemMap() {
+        buildItemMap();
         Set<Integer> keys = itemMap.keySet();
         StringBuilder sb = new StringBuilder();
         sb.append("[");
@@ -89,14 +82,16 @@ public class ItemMap {
         }
     }
 
-    public void zeroMyListedCount() {
+    public static void zeroMyListedCount() {
+        buildItemMap();
         Set keys = itemMap.keySet();
         for (Integer key : (Iterable<Integer>) keys) {
             itemMap.get(key).setMyListedCount(0);
         }
     }
 
-    public ArrayList<Item> getCategory(Item.Category type) {
+    public static ArrayList<Item> getCategory(Item.Category type) {
+        buildItemMap();
         ArrayList<Item> items = new ArrayList<>();
         Set keys = itemMap.keySet();
 

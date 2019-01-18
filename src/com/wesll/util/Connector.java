@@ -11,16 +11,19 @@ import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Map;
 
 public class Connector {
 
-    private final String USER_AGENT = "Mozilla/5.0";
-    private ItemMap itemMap = ItemMap.getInstance();
-    private Map<Integer, Item> mapOfItems = itemMap.getItemMap();
+    private static final String USER_AGENT = "Mozilla/5.0";
+//    private static ItemMap itemMap = ItemMap.getInstance();
+//    private static Map<Integer, Item> mapOfItems = itemMap.getItemMap();
 
-    public JSONArray sendGet() throws Exception {
+    private Connector() {}
+
+    private static JSONArray sendGet() throws Exception {
         String url = "http://auction-api-us.worldofwarcraft.com/auction-data/a6b6ca548431e1202e4248ccf28fd4ad/auctions.json";
         JSONObject jsonObject;
         JSONArray jsonArray;
@@ -60,28 +63,26 @@ public class Connector {
         }
     };
 
-    public void running() throws Exception {
+    public static void running() throws Exception {
         // call API
-        Connector connector = new Connector();
-        JSONArray auctions = connector.sendGet();
+        JSONArray auctions = Connector.sendGet();
         ArrayList list = arrayToList(auctions);
         parseTracked(list);
     }
 
-    private void parseTracked(ArrayList list) {
-        Map<Integer, Item> temp = mapOfItems;
+    private static void parseTracked(ArrayList list) {
         BigInteger zero = new BigInteger("0");
-        itemMap.zeroMyListedCount();
+        ItemMap.zeroMyListedCount();
 
         for (Object obj : list) {
             Auction auction = (Auction) obj;
             int key = auction.getItem();
-            if (temp.containsKey(key)) {
+            if (ItemMap.getItemMap().containsKey(key)) {
                 BigInteger newPrice = (auction.getBuyout().divide(BigInteger.valueOf(auction.getQuantity())));
-                BigInteger lowestPrice = temp.get(key).getPrice();
+                BigInteger lowestPrice = ItemMap.getItemMap().get(key).getPrice();
 
                 if (auction.getOwner().equals("Safetywire")) {
-                    temp.get(key).iterateListed();
+                    ItemMap.getItemMap().get(key).iterateListed();
                 }
 
                 // if lowest price is 0, or new price is less than lowest price
@@ -89,7 +90,7 @@ public class Connector {
 
                     // check for auctions without a buyout value (bid only)
                     if (!String.valueOf(newPrice).equals("0")) {
-                        temp.get(key).setPrice(newPrice);
+                        ItemMap.getItemMap().get(key).setPrice(newPrice);
                     }
                 }
             }

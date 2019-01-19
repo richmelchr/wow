@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Item {
 
     public enum Category {
-        FLASK, COMBAT, HERB, FOLLOWER, UTILITY, BP, FOOD, MEAT
+        FLASK, COMBAT, HERB, FOLLOWER, UTILITY, BP, FOOD, MEAT, NA
     }
 
     private int item;
@@ -16,6 +16,14 @@ public class Item {
     private String image;
     private int myListedCount;
     private ArrayList<String> materials;
+
+    public Item() {
+        this(0, new BigInteger("0"), 0);
+    }
+
+    public Item(int item, BigInteger price, int myListedCount) {
+        this(item, "", price, Category.NA, "", myListedCount, new ArrayList<>());
+    }
 
     public Item(int item, String name, BigInteger price, Category category, String image, int myListedCount, ArrayList<String> materials) {
         this.item = item;

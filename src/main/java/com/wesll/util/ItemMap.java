@@ -5,10 +5,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-
 import java.io.*;
 import java.math.BigInteger;
-import java.text.ParseException;
 import java.util.*;
 
 public class ItemMap {
@@ -85,8 +83,8 @@ public class ItemMap {
 
     public static void zeroMyListedCount() {
         buildItemMap();
-        Set keys = itemMap.keySet();
-        for (Integer key : (Iterable<Integer>) keys) {
+        Set<Integer> keys = itemMap.keySet();
+        for (Integer key : keys) {
             itemMap.get(key).setMyListedCount(0);
         }
     }
@@ -94,9 +92,9 @@ public class ItemMap {
     public static ArrayList<Item> getCategory(Item.Category type) {
         buildItemMap();
         ArrayList<Item> items = new ArrayList<>();
-        Set keys = itemMap.keySet();
+        Set<Integer> keys = itemMap.keySet();
 
-        for (Integer key : (Iterable<Integer>) keys) {
+        for (Integer key : keys) {
             Item item = itemMap.get(key);
             if (item.getCategory().equals(type)) {
                 items.add(item);

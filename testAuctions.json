@@ -1,0 +1,138 @@
+[
+  {
+    "auc": 1894281411,
+    "item": 35961,
+    "owner": "Nemmisis",
+    "ownerRealm": "Tichondrius",
+    "bid": 72010,
+    "buyout": 220000,
+    "quantity": 1,
+    "timeLeft": "VERY_LONG",
+    "rand": 0,
+    "seed": 0,
+    "context": 36,
+    "bonusLists": [
+      {
+        "bonusListId": 1706
+      },
+      {
+        "bonusListId": 3851
+      }
+    ],
+    "modifiers": [
+      {
+        "type": 9,
+        "value": 112
+      }
+    ]
+  },
+  {
+    "auc": 1893757137,
+    "item": 162113,
+    "owner": "Kinmujim",
+    "ownerRealm": "Tichondrius",
+    "bid": 12340200,
+    "buyout": 40000000,
+    "quantity": 1,
+    "timeLeft": "LONG",
+    "rand": 0,
+    "seed": 0,
+    "context": 0
+  },
+  {
+    "auc": 1893757139,
+    "item": 152561,
+    "owner": "Kinmujim",
+    "ownerRealm": "Tichondrius",
+    "bid": 33330200,
+    "buyout": 44440000,
+    "quantity": 5,
+    "timeLeft": "LONG",
+    "rand": 0,
+    "seed": 0,
+    "context": 0
+  },
+  {
+    "auc": 1893757143,
+    "item": 152506,
+    "owner": "Kinmujim",
+    "ownerRealm": "Tichondrius",
+    "bid": 220200,
+    "buyout": 400000,
+    "quantity": 50,
+    "timeLeft": "LONG",
+    "rand": 0,
+    "seed": 0,
+    "context": 0
+  },
+  {
+    "auc": 1894281425,
+    "item": 109138,
+    "owner": "Pinkspider",
+    "ownerRealm": "Tichondrius",
+    "bid": 400000,
+    "buyout": 500000,
+    "quantity": 200,
+    "timeLeft": "VERY_LONG",
+    "rand": 0,
+    "seed": 0,
+    "context": 0
+  },
+  {
+    "auc": 1894281426,
+    "item": 152638,
+    "owner": "Pinkspider",
+    "ownerRealm": "Tichondrius",
+    "bid": 410000,
+    "buyout": 500000,
+    "quantity": 200,
+    "timeLeft": "VERY_LONG",
+    "rand": 0,
+    "seed": 0,
+    "context": 0
+  },
+  {
+    "auc": 1894281427,
+    "item": 109138,
+    "owner": "Pinkspider",
+    "ownerRealm": "Tichondrius",
+    "bid": 400000,
+    "buyout": 500000,
+    "quantity": 200,
+    "timeLeft": "VERY_LONG",
+    "rand": 0,
+    "seed": 0,
+    "context": 0
+  },
+  {
+    "auc": 1894019236,
+    "item": 116260,
+    "owner": "Auctionpupet",
+    "ownerRealm": "Tichondrius",
+    "bid": 34439999,
+    "buyout": 34439999,
+    "quantity": 1,
+    "timeLeft": "SHORT",
+    "rand": 0,
+    "seed": 0,
+    "context": 0
+  },
+  {
+    "auc": 1894281385,
+    "item": 164654,
+    "owner": "Bojino",
+    "ownerRealm": "Tichondrius",
+    "bid": 191000000,
+    "buyout": 191000000,
+    "quantity": 1,
+    "timeLeft": "LONG",
+    "rand": 0,
+    "seed": 0,
+    "context": 13,
+    "bonusLists": [
+      {
+        "bonusListId": 1701
+      }
+    ]
+  }
+]

@@ -38,6 +38,7 @@ public class DisplayOut {
 
             BigInteger costTotal = new BigInteger("0");
             TextFlow materialsFlow = new TextFlow();
+            Image imageAddress = new Image("File:images/" + item.getImage(), 20, 20, false, true);
 
             for (String matPlusAmount : item.getMaterials()) {
 
@@ -47,21 +48,8 @@ public class DisplayOut {
                 ImageView matView = new ImageView(new Image("File:images/" + material + ".jpg", 20, 20, false, true));
                 materialsFlow.getChildren().addAll(matView);
 
-                try {
-                    Item matItem = ItemMap.getItem(Integer.valueOf(material));
-                    BigInteger calcCost = matItem.getPrice().multiply(new BigInteger(quantity));
-                    if (item.getCategory().equals(Item.Category.FOOD)) {
-                        // quantity of item I get from making a batch
-                        calcCost = calcCost.divide(new BigInteger("10"));
-                    }
-                    costTotal = costTotal.add(calcCost);
-
-                } catch (Exception e) {
-                    System.out.println("Exception: Item not found in map of herbs | " + e.getMessage());
-                }
+                costTotal = buildCost(costTotal, material, quantity, item);
             }
-
-            Image imageAddress = new Image("File:images/" + item.getImage(), 20, 20, false, true);
 
             gridPane.addRow(getRowCount(),
                     new ImageView(imageAddress),
@@ -79,6 +67,22 @@ public class DisplayOut {
 
         }
         gridPane.addRow(getRowCount(), new Text());
+    }
+
+    private static BigInteger buildCost(BigInteger costTotal, String material, String quantity, Item item) {
+        try {
+            Item matItem = ItemMap.getItem(Integer.valueOf(material));
+            BigInteger calcCost = matItem.getPrice().multiply(new BigInteger(quantity));
+            if (item.getCategory().equals(Item.Category.FOOD)) {
+                // quantity of item I get from making a batch
+                calcCost = calcCost.divide(new BigInteger("10"));
+            }
+            costTotal = costTotal.add(calcCost);
+
+        } catch (Exception e) {
+            System.out.println("Exception: Item not found in map of herbs | " + e.getMessage());
+        }
+        return costTotal;
     }
 
     // TODO: this should update the display when a Observer object notices a change in the mapOfItems Map object

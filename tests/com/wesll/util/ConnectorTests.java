@@ -39,7 +39,8 @@ public class ConnectorTests {
         PowerMockito.spy(Connector.class);
         PowerMockito.doReturn(jsonArray).when(Connector.class, "sendGet");
 
-
+        Connector.running();
+        System.out.println();
 
     }
 

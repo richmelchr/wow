@@ -2,12 +2,13 @@ package com.wesll.util;
 
 import com.wesll.beans.Item;
 import org.json.simple.JSONArray;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
 
 import java.io.*;
 import java.math.BigInteger;
+import java.text.ParseException;
 import java.util.*;
 
 public class ItemMap {
@@ -41,7 +42,7 @@ public class ItemMap {
                     itemMap.put(itemNumber, new Item(itemNumber, name, new BigInteger("0"), category, image, 0, meh));
                 }
 
-            } catch (IOException | ParseException e) {
+            } catch (IOException | org.json.simple.parser.ParseException e) {
                 e.printStackTrace();
             }
         }

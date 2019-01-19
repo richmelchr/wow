@@ -6,9 +6,9 @@ import org.json.simple.parser.ParseException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
-
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -36,8 +36,8 @@ public class ConnectorTests {
 
     @Test
     public void testRunning() throws Exception {
-//        PowerMockito.spy(Connector.class);
-//        PowerMockito.doReturn(jsonArray).when(Connector.class, "sendGet");
+        PowerMockito.spy(Connector.class);
+        PowerMockito.doReturn(jsonArray).when(Connector.class, "sendGet");
 
 
 

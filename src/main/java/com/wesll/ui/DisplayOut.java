@@ -6,6 +6,7 @@ import com.wesll.util.ItemMap;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -62,7 +63,7 @@ public class DisplayOut {
 
             Image imageAddress = new Image("File:images/" + item.getImage(), 20, 20, false, true);
 
-            gridPane.addRow(gridPane.getRowCount(),
+            gridPane.addRow(getRowCount(),
                     new ImageView(imageAddress),
                     new Text(" "),
                     new Label(item.getName()),
@@ -77,7 +78,7 @@ public class DisplayOut {
             );
 
         }
-        gridPane.addRow(gridPane.getRowCount(), new Text());
+        gridPane.addRow(getRowCount(), new Text());
     }
 
     // TODO: this should update the display when a Observer object notices a change in the mapOfItems Map object
@@ -127,7 +128,7 @@ public class DisplayOut {
     private static void buildDisplay() {
         gridPane = new GridPane();
         buildGridPane();
-        GridPane.setConstraints(button, 2, gridPane.getRowCount());
+        GridPane.setConstraints(button, 2, getRowCount());
         gridPane.getChildren().add(button);
         Scene scene = new Scene(gridPane, 400, 1010);
         scene.getStylesheets().add("style.css");
@@ -158,6 +159,20 @@ public class DisplayOut {
                 }
             }
         });
+    }
+
+    private static int getRowCount() {
+        int numRows = gridPane.getRowConstraints().size();
+        for (int i = 0; i < gridPane.getChildren().size(); i++) {
+            Node child = gridPane.getChildren().get(i);
+            if (child.isManaged()) {
+                Integer rowIndex = GridPane.getRowIndex(child);
+                if (rowIndex != null) {
+                    numRows = Math.max(numRows, rowIndex + 1);
+                }
+            }
+        }
+        return numRows;
     }
 
 }

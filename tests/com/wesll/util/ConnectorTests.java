@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
+import org.powermock.reflect.Whitebox;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -27,6 +28,7 @@ public class ConnectorTests {
 
     private static String FILE_NAME = "D:\\Code\\wow\\testAuctions.json";
     JSONArray jsonArray;
+    private ItemMap itemMap = ItemMap.getInstance();
 
     private Map<Integer, Item> testItemMap = new HashMap<>();
     private ArrayList<Item> auctionList = new ArrayList<>();
@@ -52,9 +54,9 @@ public class ConnectorTests {
         PowerMockito.spy(Connector.class);
         PowerMockito.doReturn(jsonArray).when(Connector.class, "sendGet");
 
-        Connector.running();
+        Whitebox.invokeMethod(Connector.class, "running");
 
-        Map<Integer, Item> builtItemMap = ItemMap.getItemMap();
+        Map<Integer, Item> builtItemMap = itemMap.getMapOfItems();
 
         Set<Integer> keys = testItemMap.keySet();
         for (Integer key : keys) {

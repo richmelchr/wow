@@ -19,22 +19,36 @@ import javafx.stage.Stage;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Observable;
+import java.util.Observer;
 
-public class DisplayOut {
+public class DisplayOut implements Observer {
 
     private final BigDecimal POTS_PROC_RATE = new BigDecimal("1.5");
-    private final BigDecimal FOOD_PROC_RATE = new BigDecimal("1.5");
+    private final BigDecimal FOOD_PROC_RATE = new BigDecimal("10");
     private static Button button;
     private static Stage window;
+    private static ItemMap itemMap = ItemMap.getInstance();
+    private static DisplayOut instance;
+
     private static GridPane gridPane;
     // TODO: observer class. if calculator object 'prices' changes, make change to output display
 
-    private DisplayOut() {
+    private DisplayOut( ) {
+    }
+
+    public static DisplayOut getInstance() {
+        synchronized (DisplayOut.class) {
+            if (instance == null) {
+                instance = new DisplayOut();
+            }
+        }
+        return instance;
     }
 
     private static void miniBuilder(Item.Category category) {
 
-        for (Item item : ItemMap.getCategory(category)) {
+        for (Item item : itemMap.getCategory(category)) {
 
             BigInteger costTotal = new BigInteger("0");
             TextFlow materialsFlow = new TextFlow();
@@ -48,7 +62,7 @@ public class DisplayOut {
                 ImageView matView = new ImageView(new Image("File:images/" + material + ".jpg", 20, 20, false, true));
                 materialsFlow.getChildren().addAll(matView);
 
-                costTotal = buildCost(costTotal, material, quantity, item);
+                costTotal = costTotal.add(buildCost(material, quantity, item));
             }
 
             gridPane.addRow(getRowCount(),
@@ -69,20 +83,20 @@ public class DisplayOut {
         gridPane.addRow(getRowCount(), new Text());
     }
 
-    private static BigInteger buildCost(BigInteger costTotal, String material, String quantity, Item item) {
+    private static BigInteger buildCost(String material, String quantity, Item item) {
+        BigInteger calcCost = new BigInteger("0");
         try {
-            Item matItem = ItemMap.getItem(Integer.valueOf(material));
-            BigInteger calcCost = matItem.getPrice().multiply(new BigInteger(quantity));
+            Item matItem = itemMap.getItem(Integer.valueOf(material));
+            calcCost = matItem.getPrice().multiply(new BigInteger(quantity));
             if (item.getCategory().equals(Item.Category.FOOD)) {
                 // quantity of item I get from making a batch
                 calcCost = calcCost.divide(new BigInteger("10"));
             }
-            costTotal = costTotal.add(calcCost);
 
         } catch (Exception e) {
             System.out.println("Exception: Item not found in map of herbs | " + e.getMessage());
         }
-        return costTotal;
+        return calcCost;
     }
 
     // TODO: this should update the display when a Observer object notices a change in the mapOfItems Map object
@@ -140,10 +154,11 @@ public class DisplayOut {
         window.show();
     }
 
-    public static void begin(Stage win) {
+    public void begin(Stage win) {
         window = win;
-        ItemMap.buildItemMap();
+        itemMap.addObserver(this);
         newButton();
+//        new Thread(Connector.r).start();
         buildDisplay();
     }
 
@@ -155,9 +170,9 @@ public class DisplayOut {
             public void handle(ActionEvent event) {
                 try {
                     System.out.println("clicked");
+//                    new Thread(Connector.r).start();
                     Connector.running();
-
-                    buildDisplay();
+//                    buildDisplay();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -179,6 +194,11 @@ public class DisplayOut {
         return numRows;
     }
 
+
+    @Override
+    public void update(Observable o, Object arg) {
+        buildDisplay();
+    }
 }
 
 

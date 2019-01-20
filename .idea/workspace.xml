@@ -3,13 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="959aa38d-8626-475f-b0c4-5d9fee295c9d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/items.json" beforeDir="false" afterPath="$PROJECT_DIR$/items.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wesll/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wesll/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/wesll/beans/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wesll/beans/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wesll/ui/DisplayOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wesll/ui/DisplayOut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wesll/util/Connector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wesll/util/Connector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/wesll/util/ItemMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wesll/util/ItemMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/wesll/beans/Item$Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wesll/beans/Item$Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wesll/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wesll/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/wesll/beans/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wesll/beans/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wesll/ui/DisplayOut$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wesll/ui/DisplayOut$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wesll/ui/DisplayOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wesll/ui/DisplayOut.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wesll/util/Connector$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wesll/util/Connector$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wesll/util/Connector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wesll/util/Connector.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/wesll/util/ItemMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wesll/util/ItemMap.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/wesll/util/ConnectorTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/wesll/util/ConnectorTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testAuctions.json" beforeDir="false" afterPath="$PROJECT_DIR$/testAuctions.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/com/wesll/util/ConnectorTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/com/wesll/util/ConnectorTests.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -63,23 +70,23 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.37189054">
+    <splitter split-orientation="horizontal" split-proportion="0.3084833">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/wesll/Main.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="34">
-                  <caret line="2" selection-start-line="2" selection-end-line="2" />
+                <state relative-caret-position="289">
+                  <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/wesll/util/Connector.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="445">
-                  <caret line="63" column="19" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
+                <state relative-caret-position="1428">
+                  <caret line="96" column="36" selection-start-line="96" selection-start-column="36" selection-end-line="96" selection-end-column="36" />
                 </state>
               </provider>
             </entry>
@@ -88,7 +95,7 @@
             <entry file="file://$PROJECT_DIR$/testAuctions.json">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="476">
-                  <caret line="28" column="4" lean-forward="true" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+                  <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
                 </state>
               </provider>
             </entry>
@@ -96,23 +103,39 @@
         </leaf>
       </split-first>
       <split-second>
-        <splitter split-orientation="horizontal" split-proportion="0.6567657">
+        <splitter split-orientation="horizontal" split-proportion="0.49935484">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file pinned="false" current-in-tab="false">
+              <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/main/java/com/wesll/ui/DisplayOut.java">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="646">
-                      <caret line="161" column="40" lean-forward="true" selection-start-line="161" selection-start-column="40" selection-end-line="161" selection-end-column="40" />
+                    <state relative-caret-position="595">
+                      <caret line="163" lean-forward="true" selection-start-line="163" selection-end-line="163" />
+                      <folding>
+                        <element signature="e#6470#6471#0" expanded="true" />
+                        <element signature="e#6500#6501#0" expanded="true" />
+                      </folding>
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file pinned="false" current-in-tab="true">
+              <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/tests/com/wesll/util/ConnectorTests.java">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="1088">
-                      <caret line="83" column="4" lean-forward="true" selection-start-line="83" selection-start-column="4" selection-end-line="83" selection-end-column="4" />
+                    <state relative-caret-position="646">
+                      <caret line="58" column="66" lean-forward="true" selection-start-line="58" selection-start-column="66" selection-end-line="58" selection-end-column="66" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/main/java/com/wesll/beans/Auction.java">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="85">
+                      <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+                      <folding>
+                        <element signature="imports" expanded="true" />
+                      </folding>
                     </state>
                   </provider>
                 </entry>
@@ -121,7 +144,7 @@
                 <entry file="file://$PROJECT_DIR$/items.json">
                   <provider selected="true" editor-type-id="text-editor">
                     <state>
-                      <caret column="4341" selection-start-column="4341" selection-end-column="4341" />
+                      <caret column="66" selection-start-column="66" selection-end-column="66" />
                     </state>
                   </provider>
                 </entry>
@@ -129,12 +152,21 @@
             </leaf>
           </split-first>
           <split-second>
-            <leaf>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/main/java/com/wesll/util/ItemMap.java">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="1598">
-                      <caret line="101" column="9" lean-forward="true" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
+                    <state relative-caret-position="916">
+                      <caret line="56" selection-start-line="56" selection-end-line="56" />
+                      <folding>
+                        <element signature="imports" expanded="true" />
+                        <element signature="e#510#511#0" expanded="true" />
+                        <element signature="e#543#544#0" expanded="true" />
+                        <element signature="e#2236#2237#0" expanded="true" />
+                        <element signature="e#2279#2280#0" expanded="true" />
+                        <element signature="e#2335#2336#0" expanded="true" />
+                        <element signature="e#2368#2369#0" expanded="true" />
+                      </folding>
                     </state>
                   </provider>
                 </entry>
@@ -142,13 +174,42 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/main/java/com/wesll/beans/Item.java">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="272">
-                      <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+                    <state relative-caret-position="510">
+                      <caret line="71" column="35" selection-start-line="71" selection-start-column="35" selection-end-line="71" selection-end-column="35" />
                       <folding>
                         <element signature="imports" expanded="true" />
-                        <element signature="e#431#432#0" expanded="true" />
-                        <element signature="e#450#451#0" expanded="true" />
-                        <element signature="method#Item#0;class#Item#0" />
+                        <element signature="e#1114#1115#0" expanded="true" />
+                        <element signature="e#1141#1142#0" expanded="true" />
+                        <element signature="e#1172#1173#0" expanded="true" />
+                        <element signature="e#1199#1200#0" expanded="true" />
+                        <element signature="e#1235#1236#0" expanded="true" />
+                        <element signature="e#1263#1264#0" expanded="true" />
+                        <element signature="e#1300#1301#0" expanded="true" />
+                        <element signature="e#1331#1332#0" expanded="true" />
+                        <element signature="e#1363#1364#0" expanded="true" />
+                        <element signature="e#1391#1392#0" expanded="true" />
+                        <element signature="e#1428#1429#0" expanded="true" />
+                        <element signature="e#1464#1465#0" expanded="true" />
+                        <element signature="e#1511#1512#0" expanded="true" />
+                        <element signature="e#1543#1544#0" expanded="true" />
+                        <element signature="e#1578#1579#0" expanded="true" />
+                        <element signature="e#1609#1610#0" expanded="true" />
+                        <element signature="e#1678#1679#0" expanded="true" />
+                        <element signature="e#1718#1719#0" expanded="true" />
+                        <element signature="e#1750#1751#0" expanded="true" />
+                        <element signature="e#1796#1797#0" expanded="true" />
+                        <element signature="e#1830#1831#0" expanded="true" />
+                        <element signature="e#1880#1881#0" expanded="true" />
+                        <element signature="e#1920#1921#0" expanded="true" />
+                        <element signature="e#1962#1963#0" expanded="true" />
+                        <element signature="e#1996#1997#0" expanded="true" />
+                        <element signature="e#2051#2052#0" expanded="true" />
+                        <element signature="e#2101#2102#0" expanded="true" />
+                        <element signature="e#2162#2163#0" expanded="true" />
+                        <element signature="e#2204#2205#0" expanded="true" />
+                        <element signature="e#2252#2253#0" expanded="true" />
+                        <element signature="e#2292#2293#0" expanded="true" />
+                        <element signature="e#2665#2666#0" expanded="true" />
                       </folding>
                     </state>
                   </provider>
@@ -170,10 +231,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>honey po</find>
-      <find>honey</find>
-      <find>briny f</find>
-      <find>gal</find>
       <find>thick p</find>
       <find>sand s</find>
       <find>tira</find>
@@ -197,9 +254,13 @@
       <find>35961</find>
       <find>109138</find>
       <find>164654</find>
-      <find>162113</find>
       <find>key</find>
       <find>152506</find>
+      <find>162113</find>
+      <find>procRate</find>
+      <find>itemMap</find>
+      <find>instance</find>
+      <find>buildDisplay</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -236,16 +297,18 @@
         <option value="$PROJECT_DIR$/src/main/wesll/util/Connector.java" />
         <option value="$PROJECT_DIR$/src/main/com/wesll/util/Connector.java" />
         <option value="$PROJECT_DIR$/src/main/java/wesll/util/Connector.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wesll/util/Connector.java" />
         <option value="$PROJECT_DIR$/tests/main/java/com/wesll/util/ConnectorTests.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wesll/Main.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wesll/ui/DisplayOut.java" />
+        <option value="$PROJECT_DIR$/testAuctions.json" />
         <option value="$PROJECT_DIR$/items.json" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wesll/util/Observer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wesll/util/BinaryObserver.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wesll/beans/Item.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wesll/util/ItemMap.java" />
-        <option value="$PROJECT_DIR$/testAuctions.json" />
         <option value="$PROJECT_DIR$/tests/com/wesll/util/ConnectorTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wesll/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wesll/util/Connector.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wesll/ui/DisplayOut.java" />
       </list>
     </option>
   </component>
@@ -276,8 +339,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="2576" />
-    <option name="height" value="1456" />
+    <option name="width" value="2498" />
+    <option name="height" value="1440" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -288,6 +351,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -333,7 +398,25 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="wesll" type="462c0819:PsiDirectoryNode" />
+              <item name="beans" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wow" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="wesll" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wow" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="wesll" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wow" type="b2602c69:ProjectViewProjectNode" />
@@ -344,8 +427,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -356,7 +437,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547933641136" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548027461253" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -398,7 +479,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ConnectorTests">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.wesll.Main" />
       <module name="wow" />
@@ -466,9 +547,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ConnectorTests" />
-        <item itemvalue="JUnit.ConnectorTests.testRunning" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.ConnectorTests.testRunning" />
+        <item itemvalue="JUnit.ConnectorTests" />
         <item itemvalue="JUnit.ConnectorTests.buildItemMap" />
       </list>
     </recent_temporary>
@@ -510,23 +591,12 @@
       <workItem from="1547771925812" duration="75000" />
       <workItem from="1547778627324" duration="1023000" />
       <workItem from="1547825295436" duration="38061000" />
-      <workItem from="1547916681232" duration="9942000" />
+      <workItem from="1547916681232" duration="21041000" />
+      <workItem from="1548002707593" duration="6791000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ConnectorTests_testRunning - 2019.01.19 at 12h 16m 57s.xml">
-      <configuration name="ConnectorTests.testRunning" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ConnectorTests_testRunning - 2019.01.19 at 12h 17m 24s.xml">
-      <configuration name="ConnectorTests.testRunning" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ConnectorTests_testRunning - 2019.01.19 at 12h 19m 49s.xml">
-      <configuration name="ConnectorTests.testRunning" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ConnectorTests_buildItemMap - 2019.01.19 at 12h 22m 21s.xml">
-      <configuration name="ConnectorTests.buildItemMap" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ConnectorTests_testRunning - 2019.01.19 at 12h 22m 28s.xml">
       <configuration name="ConnectorTests.testRunning" configurationId="JUnit" />
     </history-entry>
@@ -545,9 +615,21 @@
     <history-entry file="ConnectorTests - 2019.01.19 at 12h 27m 21s.xml">
       <configuration name="ConnectorTests" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ConnectorTests_testRunning - 2019.01.19 at 14h 33m 55s.xml">
+      <configuration name="ConnectorTests.testRunning" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConnectorTests - 2019.01.19 at 14h 34m 04s.xml">
+      <configuration name="ConnectorTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConnectorTests_testRunning - 2019.01.19 at 17h 57m 02s.xml">
+      <configuration name="ConnectorTests.testRunning" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConnectorTests_testRunning - 2019.01.19 at 17h 57m 55s.xml">
+      <configuration name="ConnectorTests.testRunning" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="221958000" />
+    <option name="totallyTimeSpent" value="239848000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -562,7 +644,7 @@
     <frame x="-8" y="-8" width="2576" height="1456" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.041335452" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10890302" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -572,7 +654,7 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.25623584" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49960256" weight="0.1919879" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49960256" visible="true" weight="0.2728647" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.50037795" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -583,7 +665,6 @@
       <window_info anchor="bottom" id="Messages" order="10" weight="0.123960696" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info anchor="right" id="Coverage" sideWeight="0.5004677" side_tool="true" weight="0.1836248" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -594,6 +675,7 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="LuaJ" order="9" weight="0.3298887" />
+      <window_info anchor="right" id="Coverage" order="10" sideWeight="0.5004677" side_tool="true" weight="0.1836248" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" weight="0.06359301" />
@@ -663,6 +745,55 @@
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/maven.pom" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wesll/style.css" />
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/powermock/powermock-reflect/1.7.1/powermock-reflect-1.7.1-sources.jar!/org/powermock/reflect/Whitebox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="465" selection-start-line="465" selection-end-line="465" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/powermock/powermock-reflect/1.7.1/powermock-reflect-1.7.1-sources.jar!/org/powermock/reflect/internal/WhiteboxImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="853" selection-start-line="853" selection-end-line="853" />
+          <folding>
+            <element signature="e#97232#97233#0" expanded="true" />
+            <element signature="e#97283#97284#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wesll/util/BinaryObserver.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wesll/util/Observer.java" />
+    <entry file="file://$PROJECT_DIR$/testAuctions.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/items.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="66" selection-start-column="66" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/com/wesll/util/ConnectorTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="58" column="66" lean-forward="true" selection-start-line="58" selection-start-column="66" selection-end-line="58" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wesll/beans/Auction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -673,73 +804,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wesll/style.css" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wesll/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/items.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="4341" selection-start-column="4341" selection-end-column="4341" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wesll/ui/DisplayOut.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="161" column="40" lean-forward="true" selection-start-line="161" selection-start-column="40" selection-end-line="161" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wesll/beans/Item.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+        <state relative-caret-position="510">
+          <caret line="71" column="35" selection-start-line="71" selection-start-column="35" selection-end-line="71" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#431#432#0" expanded="true" />
-            <element signature="e#450#451#0" expanded="true" />
-            <element signature="method#Item#0;class#Item#0" />
+            <element signature="e#1114#1115#0" expanded="true" />
+            <element signature="e#1141#1142#0" expanded="true" />
+            <element signature="e#1172#1173#0" expanded="true" />
+            <element signature="e#1199#1200#0" expanded="true" />
+            <element signature="e#1235#1236#0" expanded="true" />
+            <element signature="e#1263#1264#0" expanded="true" />
+            <element signature="e#1300#1301#0" expanded="true" />
+            <element signature="e#1331#1332#0" expanded="true" />
+            <element signature="e#1363#1364#0" expanded="true" />
+            <element signature="e#1391#1392#0" expanded="true" />
+            <element signature="e#1428#1429#0" expanded="true" />
+            <element signature="e#1464#1465#0" expanded="true" />
+            <element signature="e#1511#1512#0" expanded="true" />
+            <element signature="e#1543#1544#0" expanded="true" />
+            <element signature="e#1578#1579#0" expanded="true" />
+            <element signature="e#1609#1610#0" expanded="true" />
+            <element signature="e#1678#1679#0" expanded="true" />
+            <element signature="e#1718#1719#0" expanded="true" />
+            <element signature="e#1750#1751#0" expanded="true" />
+            <element signature="e#1796#1797#0" expanded="true" />
+            <element signature="e#1830#1831#0" expanded="true" />
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1920#1921#0" expanded="true" />
+            <element signature="e#1962#1963#0" expanded="true" />
+            <element signature="e#1996#1997#0" expanded="true" />
+            <element signature="e#2051#2052#0" expanded="true" />
+            <element signature="e#2101#2102#0" expanded="true" />
+            <element signature="e#2162#2163#0" expanded="true" />
+            <element signature="e#2204#2205#0" expanded="true" />
+            <element signature="e#2252#2253#0" expanded="true" />
+            <element signature="e#2292#2293#0" expanded="true" />
+            <element signature="e#2665#2666#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testAuctions.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="4" lean-forward="true" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wesll/util/ItemMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1598">
-          <caret line="101" column="9" lean-forward="true" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wesll/util/Connector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="63" column="19" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
+        <state relative-caret-position="1428">
+          <caret line="96" column="36" selection-start-line="96" selection-start-column="36" selection-end-line="96" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/com/wesll/util/ConnectorTests.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wesll/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="83" column="4" lean-forward="true" selection-start-line="83" selection-start-column="4" selection-end-line="83" selection-end-column="4" />
+        <state relative-caret-position="289">
+          <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wesll/util/ItemMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="916">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#510#511#0" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
+            <element signature="e#2236#2237#0" expanded="true" />
+            <element signature="e#2279#2280#0" expanded="true" />
+            <element signature="e#2335#2336#0" expanded="true" />
+            <element signature="e#2368#2369#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wesll/ui/DisplayOut.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="163" lean-forward="true" selection-start-line="163" selection-end-line="163" />
+          <folding>
+            <element signature="e#6470#6471#0" expanded="true" />
+            <element signature="e#6500#6501#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

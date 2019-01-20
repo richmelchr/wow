@@ -1,6 +1,7 @@
 package com.wesll.util;
 
 import com.wesll.beans.Auction;
+import com.wesll.beans.Item;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -11,6 +12,7 @@ import java.math.BigInteger;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class Connector {
 
@@ -48,7 +50,7 @@ public class Connector {
         return jsonArray;
     }
 
-    Runnable r = new Runnable() {
+    public static Runnable r = new Runnable() {
         public void run() {
             try {
                 running();
@@ -67,17 +69,19 @@ public class Connector {
 
     private static void parseTracked(ArrayList list) {
         BigInteger zero = new BigInteger("0");
-        ItemMap.zeroMyListedCount();
+        ItemMap itemMap = ItemMap.getInstance();
+        itemMap.zeroMyListedCount();
+        Map<Integer, Item> mapOfItems = itemMap.getMapOfItems();
 
         for (Object obj : list) {
             Auction auction = (Auction) obj;
             int key = auction.getItem();
-            if (ItemMap.getItemMap().containsKey(key)) {
+            if (mapOfItems.containsKey(key)) {
                 BigInteger newPrice = (auction.getBuyout().divide(BigInteger.valueOf(auction.getQuantity())));
-                BigInteger lowestPrice = ItemMap.getItemMap().get(key).getPrice();
+                BigInteger lowestPrice = mapOfItems.get(key).getPrice();
 
                 if (auction.getOwner().equals("Safetywire")) {
-                    ItemMap.getItemMap().get(key).iterateListed();
+                    mapOfItems.get(key).iterateListed();
                 }
 
                 // if lowest price is 0, or new price is less than lowest price
@@ -85,11 +89,13 @@ public class Connector {
 
                     // check for auctions without a buyout value (bid only)
                     if (!String.valueOf(newPrice).equals("0")) {
-                        ItemMap.getItemMap().get(key).setPrice(newPrice);
+                        mapOfItems.get(key).setPrice(newPrice);
                     }
                 }
             }
         }
+        itemMap.setMapOfItems(mapOfItems);
+        System.out.println("finished");
     }
 
     private static ArrayList arrayToList(JSONArray array) {

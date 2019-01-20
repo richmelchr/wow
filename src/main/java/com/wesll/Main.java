@@ -23,11 +23,11 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         window = primaryStage;
         window.setTitle("AH Tracker");
         window.setOnCloseRequest(e -> closeProgram());
-        DisplayOut.begin(window);
+        DisplayOut.getInstance().begin(window);
     }
 
     private void closeProgram() {
-        boolean saved = ItemMap.saveItemMap();
+        boolean saved = ItemMap.getInstance().saveMapOfItems();
 
         if (saved) {
             System.out.println("File is saved");

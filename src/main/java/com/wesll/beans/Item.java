@@ -16,16 +16,17 @@ public class Item {
     private String image;
     private int myListedCount;
     private ArrayList<String> materials;
+    private double procRate;
 
     public Item() {
         this(0, new BigInteger("0"), 0);
     }
 
     public Item(int item, BigInteger price, int myListedCount) {
-        this(item, "", price, Category.NA, "", myListedCount, new ArrayList<>());
+        this(item, "", price, Category.NA, "", myListedCount, new ArrayList<>(), 0.0);
     }
 
-    public Item(int item, String name, BigInteger price, Category category, String image, int myListedCount, ArrayList<String> materials) {
+    public Item(int item, String name, BigInteger price, Category category, String image, int myListedCount, ArrayList<String> materials, double procRate) {
         this.item = item;
         this.name = name;
         this.price = price;
@@ -33,62 +34,71 @@ public class Item {
         this.image = image;
         this.myListedCount = myListedCount;
         this.materials = materials;
+        this.procRate = procRate;
     }
 
     public int getItem() {
         return item;
     }
 
-    public void setItem(int item) {
-        this.item = item;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public BigInteger getPrice() {
         return price;
     }
 
-    public void setPrice(BigInteger price) {
-        this.price = price;
-    }
-
     public Category getCategory() {
         return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
     }
 
     public String getImage() {
         return image;
     }
 
+    public int getMyListedCount() {
+        return myListedCount;
+    }
+
+    public ArrayList<String> getMaterials() {
+        return materials;
+    }
+
+    public double getProcRate() {
+        return procRate;
+    }
+
+    public void setItem(int item) {
+        this.item = item;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(BigInteger price) {
+        this.price = price;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
     public void setImage(String image) {
         this.image = image;
     }
 
-    public void setMyListedCount(int isMine) {
-        this.myListedCount = isMine;
-    }
-
-    public int getMyListedCount() {
-        return myListedCount;
+    public void setMyListedCount(int myListedCount) {
+        this.myListedCount = myListedCount;
     }
 
     public void setMaterials(ArrayList<String> materials) {
         this.materials = materials;
     }
 
-    public ArrayList<String> getMaterials() {
-        return materials;
+    public void setProcRate(double procRate) {
+        this.procRate = procRate;
     }
 
     @Override
@@ -110,16 +120,16 @@ public class Item {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
         sb.append("\"item\":");
-        sb.append(getItem());
+        sb.append(item);
         sb.append(",");
         sb.append("\"name\":");
-        sb.append("\"" + getName() + "\"");
+        sb.append("\"" + name + "\"");
         sb.append(",");
         sb.append("\"category\":");
-        sb.append("\"" + getCategory() + "\"");
+        sb.append("\"" + category + "\"");
         sb.append(",");
         sb.append("\"image\":");
-        sb.append("\"" + getImage() + "\"");
+        sb.append("\"" + image + "\"");
         sb.append(",");
         sb.append("\"materials\":[");
 
@@ -132,7 +142,10 @@ public class Item {
             sb.setLength(sb.length() - 1);
         }
 
-        sb.append("]}");
+        sb.append("],");
+        sb.append("\"procRate\":");
+        sb.append(procRate);
+        sb.append("}");
         return sb.toString();
     }
 }

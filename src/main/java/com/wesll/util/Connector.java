@@ -2,6 +2,7 @@ package com.wesll.util;
 
 import com.wesll.beans.Auction;
 import com.wesll.beans.Item;
+import javafx.application.Platform;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -11,6 +12,7 @@ import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -18,7 +20,8 @@ public class Connector {
 
     private static final String USER_AGENT = "Mozilla/5.0";
 
-    private Connector() {}
+    private Connector() {
+    }
 
     private static JSONArray sendGet() throws Exception {
         String url = "http://auction-api-us.worldofwarcraft.com/auction-data/a6b6ca548431e1202e4248ccf28fd4ad/auctions.json";
@@ -36,12 +39,14 @@ public class Connector {
         con.setRequestProperty("User-Agent", USER_AGENT);
 
         BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        System.out.println("REST Service contacted");
         String inputLine;
         StringBuilder response = new StringBuilder();
 
         while ((inputLine = in.readLine()) != null) {
             response.append(inputLine);
         }
+        System.out.println("REST Response Parsed");
         in.close();
 
         jsonObject = (JSONObject) parser.parse(response.toString());
@@ -60,7 +65,7 @@ public class Connector {
         }
     };
 
-    public static void running() throws Exception {
+    private static void running() throws Exception {
         // call API
         JSONArray auctions = Connector.sendGet();
         ArrayList list = arrayToList(auctions);
@@ -95,7 +100,6 @@ public class Connector {
             }
         }
         itemMap.setMapOfItems(mapOfItems);
-        System.out.println("finished");
     }
 
     private static ArrayList arrayToList(JSONArray array) {

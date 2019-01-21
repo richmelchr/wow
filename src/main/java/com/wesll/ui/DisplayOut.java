@@ -3,6 +3,7 @@ package com.wesll.ui;
 import com.wesll.beans.Item;
 import com.wesll.util.Connector;
 import com.wesll.util.ItemMap;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -20,7 +21,6 @@ import javafx.stage.Stage;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Observable;
-import java.util.Observer;
 
 public class DisplayOut implements Observer {
 
@@ -28,13 +28,15 @@ public class DisplayOut implements Observer {
     private final BigDecimal FOOD_PROC_RATE = new BigDecimal("10");
     private static Button button;
     private static Stage window;
-    private static ItemMap itemMap = ItemMap.getInstance();
+    private static ItemMap itemMap;
     private static DisplayOut instance;
+    private static Thread restThread;
+    private static Thread displayThread;
 
     private static GridPane gridPane;
     // TODO: observer class. if calculator object 'prices' changes, make change to output display
 
-    private DisplayOut( ) {
+    private DisplayOut() {
     }
 
     public static DisplayOut getInstance() {
@@ -152,14 +154,16 @@ public class DisplayOut implements Observer {
         scene.getStylesheets().add("style.css");
         window.setScene(scene);
         window.show();
+        System.out.println("Display built");
     }
 
     public void begin(Stage win) {
         window = win;
+        itemMap = ItemMap.getInstance();
         itemMap.addObserver(this);
         newButton();
-//        new Thread(Connector.r).start();
-        buildDisplay();
+        update();
+        new Thread(Connector.r).start();
     }
 
     private static void newButton() {
@@ -170,9 +174,8 @@ public class DisplayOut implements Observer {
             public void handle(ActionEvent event) {
                 try {
                     System.out.println("clicked");
-//                    new Thread(Connector.r).start();
-                    Connector.running();
-//                    buildDisplay();
+                    new Thread(Connector.r).start();
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -194,10 +197,8 @@ public class DisplayOut implements Observer {
         return numRows;
     }
 
-
-    @Override
-    public void update(Observable o, Object arg) {
-        buildDisplay();
+    public void update() {
+        Platform.runLater(DisplayOut::buildDisplay);
     }
 }
 

@@ -12,7 +12,7 @@ import java.util.*;
 public class ItemMap extends Observable {
 
     private Map<Integer, Item> mapOfItems = new HashMap<>();
-    private static String FILE_NAME = "D:\\Code\\wow\\items.json";
+    private static String FILE_NAME = "items.json";
     private static ItemMap instance;
 
     private ItemMap() {

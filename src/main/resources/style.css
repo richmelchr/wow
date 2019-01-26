@@ -4,3 +4,12 @@
 .label {
     -fx-text-fill: rgb(169,183,198);
 }
+.gridLinesStyle Line {
+    -fx-stroke: orange;
+    -fx-stroke-width: 0.5;
+}
+.highlight {
+    /*-fx-highlight-fill: yellow;*/
+    /*-fx-highlight-text-fill: firebrick;*/
+    -fx-text-fill: yellow;
+}

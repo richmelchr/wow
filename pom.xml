@@ -5,25 +5,38 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.wesll</groupId>
-    <artifactId>project</artifactId>
+    <artifactId>wow</artifactId>
     <version>1.0</version>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
                 <configuration>
                     <source>8</source>
                     <target>8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.wesll.Main</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
-
     <properties>
         <powermock.version>1.7.1</powermock.version>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.powermock</groupId>
@@ -38,12 +51,16 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
 </project>

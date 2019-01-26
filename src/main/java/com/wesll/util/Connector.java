@@ -19,6 +19,7 @@ import java.util.Map;
 public class Connector {
 
     private static final String USER_AGENT = "Mozilla/5.0";
+    private static final String USER = "Cpe";
 
     private Connector() {
     }
@@ -85,7 +86,7 @@ public class Connector {
                 BigInteger newPrice = (auction.getBuyout().divide(BigInteger.valueOf(auction.getQuantity())));
                 BigInteger lowestPrice = mapOfItems.get(key).getPrice();
 
-                if (auction.getOwner().equals("Safetywire")) {
+                if (auction.getOwner().equals(USER)) {
                     mapOfItems.get(key).iterateListed();
                 }
 

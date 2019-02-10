@@ -17,16 +17,17 @@ public class Item {
     private int myListedCount;
     private ArrayList<String> materials;
     private double procRate;
+    private int mostProfitableUse;
 
     public Item() {
         this(0, new BigInteger("0"), 0);
     }
 
     public Item(int item, BigInteger price, int myListedCount) {
-        this(item, "", price, Category.NA, "", myListedCount, new ArrayList<>(), 0.0);
+        this(item, "", price, Category.NA, "", myListedCount, new ArrayList<>(), 0.0, 0);
     }
 
-    public Item(int item, String name, BigInteger price, Category category, String image, int myListedCount, ArrayList<String> materials, double procRate) {
+    public Item(int item, String name, BigInteger price, Category category, String image, int myListedCount, ArrayList<String> materials, double procRate, int mostProfitableUse) {
         this.item = item;
         this.name = name;
         this.price = price;
@@ -35,6 +36,7 @@ public class Item {
         this.myListedCount = myListedCount;
         this.materials = materials;
         this.procRate = procRate;
+        this.mostProfitableUse = mostProfitableUse;
     }
 
     public int getItem() {
@@ -99,6 +101,14 @@ public class Item {
 
     public void setProcRate(double procRate) {
         this.procRate = procRate;
+    }
+
+    public void setMostProfitableUse(int mostProfitableUse) {
+        this.mostProfitableUse = mostProfitableUse;
+    }
+
+    public int getMostProfitableUse() {
+        return mostProfitableUse;
     }
 
     @Override

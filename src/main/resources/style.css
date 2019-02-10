@@ -13,3 +13,17 @@
     /*-fx-highlight-text-fill: firebrick;*/
     -fx-text-fill: yellow;
 }
+
+.text-field {
+    -fx-background-color: rgb(43, 43, 43);
+    -fx-text-fill: rgb(169,183,198);
+    -fx-border-width: -1;
+    -fx-max-width: 50;
+    /*-fx-min-width: 50;*/
+    -fx-min-height: 20;
+    -fx-max-height: 20;
+}
+
+.text-field .content {
+    -fx-background-color: rgb(43, 43, 43);
+}

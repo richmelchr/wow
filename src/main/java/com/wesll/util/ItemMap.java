@@ -47,7 +47,7 @@ public class ItemMap extends Observable {
                     meh.add(String.valueOf(o));
                 }
                 double procRate = Double.valueOf(String.valueOf(jo.get("procRate")));
-                mapOfItems.put(itemNumber, new Item(itemNumber, name, new BigInteger("0"), category, image, 0, meh, procRate));
+                mapOfItems.put(itemNumber, new Item(itemNumber, name, new BigInteger("0"), category, image, 0, meh, procRate, 0));
             }
 
         } catch (IOException | org.json.simple.parser.ParseException e) {
@@ -61,6 +61,27 @@ public class ItemMap extends Observable {
         this.mapOfItems = mapOfItems;
         setChanged();
         notifyObservers();
+    }
+
+    public void setItem(Item item) {
+        try {
+            mapOfItems.put(item.getItem(), item);
+        } catch (Exception e) {
+            System.out.println("Exception: unable to find item in map");
+        }
+    }
+
+    public Item getItemByName(String itemName) {
+        if (itemName != null) {
+            Set<Integer> keys = mapOfItems.keySet();
+            for (Integer key : keys) {
+                Item item = mapOfItems.get(key);
+                if (item.getName().equals(itemName)) {
+                    return item;
+                }
+            }
+        }
+        return null;
     }
 
     public Item getItem(int item) {
@@ -95,10 +116,11 @@ public class ItemMap extends Observable {
         }
     }
 
-    public void zeroMyListedCount() {
+    public void zeroMyListedAndPrice() {
         Set<Integer> keys = mapOfItems.keySet();
         for (Integer key : keys) {
             mapOfItems.get(key).setMyListedCount(0);
+            mapOfItems.get(key).setPrice(new BigInteger("0"));
         }
     }
 

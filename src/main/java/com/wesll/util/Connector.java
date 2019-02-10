@@ -19,7 +19,7 @@ import java.util.Map;
 public class Connector {
 
     private static final String USER_AGENT = "Mozilla/5.0";
-    private static final String USER = "Cpe";
+    private static final String USER = "Killerburger";
 
     private Connector() {
     }
@@ -76,7 +76,7 @@ public class Connector {
     private static void parseTracked(ArrayList list) {
         BigInteger zero = new BigInteger("0");
         ItemMap itemMap = ItemMap.getInstance();
-        itemMap.zeroMyListedCount();
+        itemMap.zeroMyListedAndPrice();
         Map<Integer, Item> mapOfItems = itemMap.getMapOfItems();
 
         for (Object obj : list) {
